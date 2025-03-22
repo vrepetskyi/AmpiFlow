@@ -46,6 +46,15 @@ class Cooperative:
         tokens_gained_from_grid = 0
         energy_added_to_storage = 0
         tokens_used_for_storage = 0
+        
+        # Prompt AI agent with historical data from the last 14 days.
+        # Based on known consuption and production values, energy prices determine time frames when there is positive net energy.
+        # Determine whether it's better to sell or to store energy.
+
+        # Assumptions:
+        # 1. Prioritize spending local production on local consumption
+        # 2. Keep batteries charged at some level for independence from the network
+        # 3. Buying from the grid is always more pricey than selling to the grid => try to use everything locally and not sell
 
         # Update storage level
         if net_energy > 0:
