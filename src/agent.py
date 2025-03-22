@@ -1,8 +1,18 @@
 
 import requests
 import json
+import sys
 
 url = "https://api.asi1.ai/v1/chat/completions"
+
+if len(sys.argv) < 1:
+  print("No required parameter: file with token for AI")
+  sys.exit(1)
+
+token_file = sys.argv[1]
+
+with open(token_file, 'r') as file:
+  token = file.read().rstrip()
 
 payload = json.dumps({
   "model": "asi1-mini",
@@ -19,7 +29,7 @@ payload = json.dumps({
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
-  'Authorization': 'Bearer sk_c3f0152a767a41b082f52e60d23d747aab8a1d294f8d4e8695d420216a6906fd'
+  'Authorization': f'Bearer {token}'
 }
 
 response = requests.request("POST", url, headers=headers, data=payload)
