@@ -1,0 +1,4 @@
+logs/*
+src/models/__pycache__/*
+src/utils/__pycache__/*
+src/__pycache__/*
