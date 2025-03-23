@@ -1,5 +1,7 @@
 fetchai==0.1.30
+uagents
 numpy
 matplotlib
 random2
 pandas
+prophet
